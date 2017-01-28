@@ -194,9 +194,24 @@ function iterator() {
   // If iterator is a string, sort objects by that property with the name
   // of that string. For example, _.sortBy(people, 'name') should sort
   // an array of people by their name.
+
+
   _.sortBy = function(collection, iterator) {
-    
+    if (typeof iterator() === "string") {
+      return collection[iterator()]();
+    }
   };
+
+  _.sortBy = function (arr, selector) {
+    var finalArr = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (finalArr.length === 0) {
+        // finalArr.push(selector(arr[i]))
+      }
+    }
+    return finalArr;
+  }
+
 
   // Zip together two or more arrays with elements of the same index
   // going together.
